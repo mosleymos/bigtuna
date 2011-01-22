@@ -110,11 +110,7 @@ class Project < ActiveRecord::Base
   
   private
   def build_dir_from_name(name)
-    if BigTuna.build_dir[0] == '/'[0]
-      File.join(BigTuna.build_dir, name.downcase.gsub(/[^A-Za-z0-9]/, "_"))
-    else
-      File.join(Rails.root, BigTuna.build_dir, name.downcase.gsub(/[^A-Za-z0-9]/, "_"))
-    end
+    File.join(Rails.root, 'tmp', 'builds', name.downcase.gsub(/[^A-Za-z0-9]/, "_"))
   end
 
   def remove_build_folder
