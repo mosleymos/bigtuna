@@ -107,8 +107,8 @@ class Build < ActiveRecord::Base
     self.project.step_lists.each do |step_list|
       replacements = {}
       step_list.shared_variables.all.each { |var| replacements[var.name] = var.value }
-      replacements["build_dir"] = 'tmp/' + self.build_dir
-      replacements["project_dir"] = 'tmp/' + self.project.build_dir
+      replacements["build_dir"] = "#{Dir.pwd}/tmp/" + self.build_dir
+      replacements["project_dir"] = "#{Dir.pwd}/tmp/" + self.project.build_dir
       attrs = {
         :name => step_list.name,
         :steps => step_list.steps,

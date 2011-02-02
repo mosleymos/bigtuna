@@ -20,7 +20,7 @@ class BuildPart < ActiveRecord::Base
     all_steps = []
     steps.split("\n").each do |step|
       step = format_step_command(step)
-      all_steps << [self.build_dir, step] unless step.empty?
+      all_steps << ['tmp/' + self.build_dir, step] unless step.empty?
     end
     exit_code = 0
     all_steps.each_with_index do |step, index|
