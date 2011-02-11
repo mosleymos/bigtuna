@@ -53,7 +53,7 @@ module BigTuna::VCS
       else
         command = "mkdir -p #{where_to} && cd #{where_to} && git init && git pull #{self.source} #{self.branch} && git branch -M master #{self.branch}"
       end
-      BigTuna::Runner.execute(File.join(Dir.pwd, 'tmp'), command)
+      BigTuna::Runner.execute(ENV['TMPDIR'], command)
     end
     
     def update(where_to)
