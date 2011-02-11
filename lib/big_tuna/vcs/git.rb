@@ -47,6 +47,7 @@ module BigTuna::VCS
     end
 
     def clone(where_to)
+      File.open(File.join(ENV["HOME"], ".gitconfig"), "w") { |f| f.puts("[user]\n name = Git\n email = git@domain.com") }
       if self.class.version_at_least?("1.6.5")
         command = "git clone --branch #{self.branch} --depth 1 #{self.source} #{where_to}"
       else
