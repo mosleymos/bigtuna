@@ -51,7 +51,7 @@ module BigTuna::VCS
       if self.class.version_at_least?("1.6.5")
         command = "git clone --branch #{self.branch} --depth 1 #{self.source} #{where_to}"
       else
-        command = "mkdir -p #{where_to} && cd #{where_to} && git init && git pull #{self.source} #{self.branch} && git branch -M master #{self.branch}"
+        command = "mkdir -p #{where_to} && cd #{where_to} && git init && git pull -q #{self.source} #{self.branch} && git branch -M master #{self.branch}"
       end
       BigTuna::Runner.execute(ENV['TMPDIR'], command)
     end
