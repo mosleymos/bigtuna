@@ -12,7 +12,8 @@ class BuildPart < ActiveRecord::Base
 
   def build!
     self.update_attributes!(:status => STATUS_IN_QUEUE)
-    Delayed::Job.enqueue(self)
+    # Delayed::Job.enqueue(self)
+    self.perform
   end
 
   def perform
