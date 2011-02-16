@@ -33,7 +33,7 @@ module BigTuna::VCS
       info = {}
       command = "git log --max-count=1 --pretty=format:%H%n%an%n%ae%n%ad%n%s #{self.branch}"
       begin
-        output = BigTuna::Runner.execute(self.source, command)
+        output = BigTuna::Runner.execute(File.join(Dir.pwd, 'tmp', self.source), command)
       rescue BigTuna::Runner::Error => e
         raise BigTuna::VCS::Error.new("Couldn't access repository log")
       end
