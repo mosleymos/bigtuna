@@ -4,8 +4,8 @@ class Project < ActiveRecord::Base
 
   has_many :builds, :dependent => :destroy
   has_many :step_lists, :dependent => :destroy
-  before_destroy :remove_build_folder
-  before_update :rename_build_folder
+  #before_destroy :remove_build_folder
+  #before_update :rename_build_folder
   before_create :set_default_build_counts
   after_save :update_hooks
   

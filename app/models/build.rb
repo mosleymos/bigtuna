@@ -9,7 +9,7 @@ class Build < ActiveRecord::Base
   belongs_to :project
   has_many :parts, :class_name => "BuildPart"
 
-  before_destroy :remove_build_dir
+  #before_destroy :remove_build_dir
   before_create :set_build_values
   serialize :output, Array
 
