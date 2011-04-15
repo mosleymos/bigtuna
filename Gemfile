@@ -22,6 +22,7 @@ gem "notifo"
 gem "tinder"
 
 group :development, :test do
+  gem "sqlite3-ruby"
   gem "capybara"
   gem "launchy"
   gem "faker"
