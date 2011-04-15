@@ -41,3 +41,7 @@ group :development, :test do
     gem "ruby-debug19"
   end
 end
+
+group :production do
+  gem "middle_management"
+end
